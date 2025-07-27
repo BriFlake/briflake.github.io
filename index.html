@@ -67,21 +67,21 @@
             }
 
             const initialTasks = [
-                { id: 'task1', name: 'Comprehensive Soil Testing', description: 'Collect 10-15 random samples (3-6 inch depth), mix, dry, and send to a certified lab. Critical for precise nutrient and pH analysis.', dueDate: '2025-07-28', category: 'Prep', completed: false },
-                { id: 'task2', name: 'Weed & Pest Identification', description: 'Identify existing weeds (dandelion, clover, crabgrass) and pests (grubs). Focus on hand-pulling for small areas. Avoid broad chemical application above 85°F.', dueDate: '2025-07-29', category: 'Prep', completed: false },
-                { id: 'task3', name: 'Water Deeply & Infrequently', description: 'Water lawn with 1-1.5 inches per week, preferably in one session in early morning. Encourage deep root growth.', dueDate: '2025-07-30', category: 'Prep', completed: false },
-                { id: 'task4', name: 'Raise Mower Blade & Mow Properly', description: 'Set mower to 3-3.5 inches. Never remove more than one-third of the blade at a time. Keep blades sharp.', dueDate: '2025-07-31', category: 'Prep', completed: false },
-                { id: 'task5', name: 'Aeration & Dethatching', description: 'Use core aerator to reduce compaction. Dethatch if thatch layer is over 0.5 inches. Do when soil is moist.', dueDate: '2025-08-20', category: 'Restore', completed: false },
-                { id: 'task6', name: 'Overseeding with Quality Blend', description: 'Immediately after aeration, spread cool-season grass blend (Kentucky Bluegrass, Perennial Ryegrass, Fescue). Cover with peat moss/straw and water daily until germination (10-14 days).', dueDate: '2025-08-25', category: 'Restore', completed: false },
-                { id: 'task7', name: 'Apply Starter Fertilizer', description: 'Apply a high-phosphorus starter fertilizer (e.g., 10-18-10) at time of seeding to promote strong root development.', dueDate: '2025-08-25', category: 'Restore', completed: false },
-                { id: 'task8', name: 'Fall Fertilization (Sept)', description: 'Apply slow-release fertilizer in September for root development and winter hardiness.', dueDate: '2025-09-15', category: 'Maintain', completed: false },
-                { id: 'task9', name: 'Spot Treat Broadleaf Weeds (Fall)', description: 'Spot-treat existing broadleaf weeds in the fall when they are actively growing and absorbing nutrients.', dueDate: '2025-09-25', category: 'Maintain', completed: false },
-                { id: 'task10', name: 'Monitor & Treat for Grubs', description: 'Monitor for grub activity. Apply Dylox for immediate control or beneficial nematodes for long-term if found.', dueDate: '2025-09-01', category: 'Maintain', completed: false },
-                { id: 'task11', name: 'Fall Fertilization (Nov)', description: 'Second fall feeding (Winterizer) in early November for strong roots and early spring green-up.', dueDate: '2025-11-05', category: 'Maintain', completed: false },
-                { id: 'task12', name: 'Pre-Emergent Herbicide (Spring next year)', description: 'Apply in late April/early May (next year) to prevent crabgrass. Do not apply if planning to overseed.', dueDate: '2026-04-25', category: 'Maintain', completed: false },
-                { id: 'task13', name: 'Spring Fertilization (Early Spring next year)', description: 'Apply slow-release fertilizer as lawn greens up (Feb-Apr next year).', dueDate: '2026-03-15', category: 'Maintain', completed: false },
-                { id: 'task14', name: 'Spring Fertilization (Late Spring next year)', description: 'Second spring feeding 6-8 weeks after first (Apr-Jun next year).', dueDate: '2026-05-01', category: 'Maintain', completed: false },
-                { id: 'task15', name: 'Summer Fertilization (next year)', description: 'Optional summer feeding in late June/early July if needed and with adequate water.', dueDate: '2026-07-01', category: 'Maintain', completed: false },
+                { id: 'task1', name: 'Soil Test - Get Down & Dirty', description: 'Grab 10-15 random soil samples (3-6" deep). Mix \'em up, dry \'em out, and send \'em to a lab. No cheating with those flimsy home kits!', dueDate: '2025-07-28', category: 'Prep', completed: false },
+                { id: 'task2', name: 'Weed & Pest Recon - Spy on Your Foes', description: 'Identify those pesky weeds (dandelions, clover, crabgrass?!) and creepy crawlies (grubs?). Hand-pull any small-time offenders. Too hot for chemicals, so keep it chill.', dueDate: '2025-07-29', category: 'Prep', completed: false },
+                { id: 'task3', name: 'Deep Watering - Hydrate Your Hunks', description: 'Give your lawn a good, long drink: 1-1.5 inches this week, ideally in one epic morning session. Encourage those roots to go deep, deep, deep!', dueDate: '2025-07-30', category: 'Prep', completed: false },
+                { id: 'task4', name: 'Mower Blade Check - Sharp Dressed Lawn', description: 'Set your mower to a glorious 3-3.5 inches. Only ever trim off a third of the blade – no scalping! And seriously, sharpen those blades. Dull cuts are so last season.', dueDate: '2025-07-31', category: 'Prep', completed: false },
+                { id: 'task5', name: 'Aeration & Dethatching - Let Your Lawn Breathe', description: 'Time to de-stress your lawn! Rent a core aerator to relieve compaction. If thatch is over 0.5 inches, dethatch. Do it when the soil is nicely moist – your lawn will thank you.', dueDate: '2025-08-20', category: 'Restore', completed: false },
+                { id: 'task6', name: 'Overseeding - Fill \'er Up!', description: 'Right after aeration, spread that top-tier cool-season grass blend (think Kentucky Bluegrass, Perennial Ryegrass, Fescue). A light peat moss or straw cover, then daily sips of water until those baby blades sprout (10-14 days).', dueDate: '2025-08-25', category: 'Restore', completed: false },
+                { id: 'task7', name: 'Starter Fertilizer - Power-Up for Tiny Roots', description: 'Apply a high-phosphorus starter fertilizer (like a 10-18-10). This is pure rocket fuel for those new roots, helping them anchor down strong before winter hits.', dueDate: '2025-08-25', category: 'Restore', completed: false },
+                { id: 'task8', name: 'Fall Feast (Sept) - Nutrient Nirvana', description: 'Mid-September: time for a slow-release fertilizer. This feeds roots, setting your lawn up for winter resilience and a stunning spring debut.', dueDate: '2025-09-15', category: 'Maintain', completed: false },
+                { id: 'task9', name: 'Weed War - Fall Edition', description: 'Spot-treat those stubborn broadleaf weeds in the fall. They\'re actively slurping up nutrients, so the herbicide will hit \'em where it hurts. No mercy!', dueDate: '2025-09-25', category: 'Maintain', completed: false },
+                { id: 'task10', name: 'Grub Patrol - Bug Busters!', description: 'Keep an eye out for grub mischief. If you spot these root-munching villains, unleash Dylox for a quick knockout or bring in beneficial nematodes for a long-term, eco-friendly solution.', dueDate: '2025-09-01', category: 'Maintain', completed: false },
+                { id: 'task11', name: 'Winterizer - Your Lawn\'s Last Meal', description: 'Early November: apply a final fall feeding (the "Winterizer"). This crucial meal fuels strong roots through winter, guaranteeing an early, vibrant green-up in spring. Think of it as a power nap!', dueDate: '2025-11-05', category: 'Maintain', completed: false },
+                { id: 'task12', name: 'Spring Pre-Emergent - Crabgrass Counter-Attack', description: 'Next Spring (late Apr/early May): deploy your pre-emergent herbicide. This is your secret weapon against crabgrass – stops it before it even thinks about sprouting. (Just don\'t apply if you\'re seeding!)', dueDate: '2026-04-25', category: 'Maintain', completed: false },
+                { id: 'task13', name: 'Spring Fertilization (Early) - Wake Up, Buttercup!', description: 'Next Spring (Feb-Apr): As your lawn stirs from its winter slumber, give it a slow-release fertilizer. It\'s like coffee for your grass – a gentle wake-up, not a caffeine jolt!', dueDate: '2026-03-15', category: 'Maintain', completed: false },
+                { id: 'task14', name: 'Spring Fertilization (Late) - Keep the Party Going', description: 'Next Spring (Apr-Jun): Six to eight weeks after the first spring feeding, it\'s time for round two! Keep those good vibes (and nutrients) flowing for sustained growth.', dueDate: '2026-05-01', category: 'Maintain', completed: false },
+                { id: 'task15', name: 'Summer Feeding - Summer Bod Prep (Optional)', description: 'Next Summer (late Jun/early Jul): Optional feeding if your lawn looks a little tired. Only if it\'s getting enough water though, otherwise, you\'ll just be giving it sunburn!', dueDate: '2026-07-01', category: 'Maintain', completed: false },
             ];
 
             async function fetchAndDisplayTasks() {
@@ -144,18 +144,27 @@
                 completedTasksContainer.innerHTML = '';
 
                 const today = getTodayDateString();
+                const funTips = [
+                    "Why did the scarecrow win an award? Because he was outstanding in his field!",
+                    "What do you call a sad strawberry? A blueberry!",
+                    "My lawn looks like a putting green... if the putter was a lawnmower.",
+                    "Why did the gardener quit? His soul wasn't in it!",
+                    "Don't worry, your lawn still loves you, even if it's currently throwing a tantrum.",
+                    "Fact: A well-maintained lawn silently judges your neighbor's patchy efforts."
+                ];
+                const randomTip = funTips[Math.floor(Math.random() * funTips.length)];
                 
                 tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 
                 tasks.forEach(task => {
                     if (!task.completed && task.dueDate === today) {
                         const taskElement = document.createElement('div');
-                        taskElement.className = 'flex items-start bg-white p-4 rounded-xl shadow-md mb-3';
+                        taskElement.className = 'flex items-start bg-gray-800 text-gray-100 p-4 rounded-xl shadow-md mb-3';
                         taskElement.innerHTML = `
-                            <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-emerald-600 focus:ring-emerald-600 border-gray-300 rounded">
+                            <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-emerald-400 focus:ring-emerald-400 border-gray-600 rounded">
                             <div class="flex-1">
-                                <label for="task-${task.id}" class="text-lg font-semibold text-gray-800">${task.name}</label>
-                                <p class="text-sm text-gray-600">${task.description}</p>
+                                <label for="task-${task.id}" class="text-lg font-semibold text-emerald-400">${task.name}</label>
+                                <p class="text-sm text-gray-300">${task.description}</p>
                                 <span class="text-xs font-medium uppercase mt-1 px-2 py-1 rounded-full self-start ${getCategoryColor(task.category)}">${task.category}</span>
                                 <p class="text-xs text-gray-500 mt-1">Due: ${task.dueDate}</p>
                             </div>
@@ -166,7 +175,7 @@
                         });
                     } else if (task.completed) {
                         const completedTaskElement = document.createElement('div');
-                        completedTaskElement.className = 'flex items-start bg-gray-50 p-4 rounded-xl shadow-sm mb-3 line-through text-gray-500';
+                        completedTaskElement.className = 'flex items-start bg-gray-700 p-4 rounded-xl shadow-sm mb-3 line-through text-gray-400';
                         completedTaskElement.innerHTML = `
                             <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-emerald-600 focus:ring-emerald-600 border-gray-300 rounded" checked disabled>
                             <div class="flex-1">
@@ -181,19 +190,19 @@
                 });
 
                 if (todayTasksContainer.children.length === 0) {
-                    todayTasksContainer.innerHTML = '<p class="text-gray-500 text-center py-4">No tasks scheduled for today. Enjoy your robust lawn!</p>';
+                    todayTasksContainer.innerHTML = `<p class="text-gray-400 text-center py-4">No tasks scheduled for today. Time for some relaxation, or perhaps a sassy joke about gardening: "${randomTip}"</p>`;
                 }
                 if (completedTasksContainer.children.length === 0) {
-                    completedTasksContainer.innerHTML = '<p class="text-gray-500 text-center py-4">No tasks completed yet.</p>';
+                    completedTasksContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No tasks completed yet. Get to it, superstar!</p>';
                 }
             }
         });
     </script>
-    <!-- Chosen Palette: Lush Modern Palette -->
-    <!-- Application Structure Plan: A task-oriented, chronological single-page application. The structure guides the user from understanding their local environment to executing a seasonal plan. It starts with a 'Local Conditions' dashboard, moves to a 'Today's Focus' for daily actionable tasks, then to a 'Today's Weather & Watering Advice' section, a phased timeline ('Phase 1: Prep', 'Phase 2: Restoration', 'Phase 3: Maintenance'), followed by 'Past Tasks', a 'Soil Test Input' tool, and ending with a 'Tools & Products' checklist. This structure was chosen to make a dense report digestible and actionable, allowing users to focus on what needs to be done 'now' while still seeing the full picture and tracking progress. Interactions like tab-switching for seasons and expanding details for tasks prevent information overload, while checkboxes, a dedicated completed list, and dynamic weather/soil input enhance daily usability and personalization. -->
+    <!-- Chosen Palette: Lush Modern Dark Palette -->
+    <!-- Application Structure Plan: A task-oriented, chronological single-page application. The structure guides the user from understanding their local environment to executing a seasonal plan. It starts with a 'Local Conditions' dashboard, moves to a 'Today's Focus' for daily actionable tasks (with playful language), then to a 'Today's Weather & Watering Advice' section, a phased timeline ('Phase 1: Prep', 'Phase 2: Restoration', 'Phase 3: Maintenance'), followed by 'Past Tasks', a 'Soil Test Input' tool, and ending with a 'Tools & Products' checklist. This structure was chosen to make a dense report digestible and actionable, allowing users to focus on what needs to be done 'now' while still seeing the full picture and tracking progress. Interactions like tab-switching for seasons and expanding details for tasks prevent information overload, while checkboxes, a dedicated completed list, and dynamic weather/soil input enhance daily usability and personalization. -->
     <!-- Visualization & Content Choices: 
         - Local Conditions: Goal: Inform. Method: Chart.js line (temp), doughnut (soil), and bar (nutrients) charts. Interaction: Hover tooltips. Justification: Visualizes complex data for quick understanding.
-        - Today's Focus: Goal: Act. Method: HTML list with checkboxes. Interaction: Click to check off tasks, which updates persistence. Justification: Provides immediate, actionable steps for the current day.
+        - Today's Focus: Goal: Act. Method: HTML list with checkboxes. Interaction: Click to check off tasks, which updates persistence. Justification: Provides immediate, actionable steps for the current day, with a fun tone.
         - Today's Weather & Watering Advice: Goal: Inform/Advise. Method: HTML text display. Interaction: Dynamic text based on mocked weather. Justification: Provides real-time context for daily decisions.
         - Restoration Plan: Goal: Guide. Method: HTML/CSS vertical timeline/accordion. Interaction: Click to expand details. Justification: Breaks down the process into manageable, chronological steps.
         - Past Tasks: Goal: Track. Method: HTML list showing completed tasks. Interaction: View only. Justification: Allows users to review their progress over time.
@@ -203,25 +212,28 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC; /* Lighter slate-50 */
-            color: #4A5568; /* Darker gray for text */
+            background-color: #1A202C; /* Gray-900 */
+            color: #E2E8F0; /* Gray-200 */
+        }
+        header {
+            background-color: #2D3748; /* Gray-800 */
         }
         .tab-active {
             border-color: #059669; /* Emerald-600 */
-            color: #059669; /* Emerald-600 */
+            color: #34D399; /* Emerald-400 */
             font-weight: 600;
         }
         .tab-inactive {
             border-color: transparent;
-            color: #718096; /* Gray-500 */
+            color: #A0AEC0; /* Gray-400 */
         }
         .task-card {
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Default subtle shadow */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12); /* Default subtle shadow, darker for dark theme */
         }
         .task-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Enhanced shadow on hover */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
         }
         .details-panel {
             max-height: 0;
@@ -246,25 +258,60 @@
                 height: 350px;
             }
         }
+        /* Custom styles for the dark theme */
+        .bg-gray-800 { background-color: #2D3748; } /* Cards/sections */
+        .bg-gray-900 { background-color: #1A202C; } /* Body background */
+        .text-gray-100 { color: #F7FAFC; } /* Light text */
+        .text-emerald-400 { color: #34D399; } /* Prominent headings */
+        .text-emerald-600 { color: #059669; } /* Button/active accents */
+        .bg-emerald-50 { background-color: #ECFDF5; color: #065F46; } /* Light emerald for recommendations */
+        .border-emerald-200 { border-color: #A7F3D0; } /* Light emerald border */
+        .border-gray-200 { border-color: #4A5568; } /* Darker gray borders */
+        .bg-gray-50 { background-color: #4A5568; } /* Lighter dark gray for specific cards */
+        .text-gray-700 { color: #CBD5E0; } /* Lighter gray for general text */
+        .text-gray-600 { color: #A0AEC0; } /* Lighter gray for descriptions */
+        .text-gray-500 { color: #718096; } /* Even lighter gray for info */
+        .border-gray-300 { border-color: #718096; } /* Checkbox borders */
+        .border-gray-600 { border-color: #4A5568; } /* Input borders */
+        input:focus { border-color: #34D399; ring-color: #34D399; }
+        .filter-btn {
+            background-color: #4A5568; /* Gray-600 */
+            color: #E2E8F0; /* Gray-200 */
+            border-radius: 9999px; /* Full rounded */
+        }
+        .filter-btn.bg-emerald-600 {
+            background-color: #059669; /* Emerald-600 */
+            color: white;
+        }
+        .filter-btn:hover {
+            background-color: #6366F1; /* Indigo-500 on hover */
+        }
+        .product-card {
+            background-color: #2D3748; /* Gray-800 */
+            color: #E2E8F0;
+            border-color: #4A5568;
+        }
+        .product-card .font-semibold { color: #34D399; } /* Product names in accent */
+        .product-card .text-sm { color: #A0AEC0; }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-white shadow-sm sticky top-0 z-20">
+    <header class="shadow-sm sticky top-0 z-20">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-emerald-600">Lawn Restoration Plan</h1>
+                    <h1 class="text-xl md:text-2xl font-bold text-emerald-400">Lawn Restoration Plan</h1>
                     <p class="text-sm text-gray-500">Arlington Heights, IL</p>
                 </div>
                 <nav class="hidden md:flex space-x-6">
-                    <a href="#conditions" class="text-gray-600 hover:text-emerald-600 transition">Local Conditions</a>
-                    <a href="#today-focus" class="text-gray-600 hover:text-emerald-600 transition">Today's Focus</a>
-                    <a href="#weather-section" class="text-gray-600 hover:text-emerald-600 transition">Weather & Water</a>
-                    <a href="#plan" class="text-gray-600 hover:text-emerald-600 transition">The Plan</a>
-                    <a href="#past-tasks" class="text-gray-600 hover:text-emerald-600 transition">Past Tasks</a>
-                    <a href="#soil-test-input" class="text-gray-600 hover:text-emerald-600 transition">Soil Test</a>
-                    <a href="#tools" class="text-gray-600 hover:text-emerald-600 transition">Tools & Products</a>
+                    <a href="#conditions" class="text-gray-400 hover:text-emerald-400 transition">Local Conditions</a>
+                    <a href="#today-focus" class="text-gray-400 hover:text-emerald-400 transition">Today's Focus</a>
+                    <a href="#weather-section" class="text-gray-400 hover:text-emerald-400 transition">Weather & Water</a>
+                    <a href="#plan" class="text-gray-400 hover:text-emerald-400 transition">The Plan</a>
+                    <a href="#past-tasks" class="text-gray-400 hover:text-emerald-400 transition">Past Tasks</a>
+                    <a href="#soil-test-input" class="text-gray-400 hover:text-emerald-400 transition">Soil Test</a>
+                    <a href="#tools" class="text-gray-400 hover:text-emerald-400 transition">Tools & Products</a>
                 </nav>
             </div>
         </div>
@@ -272,62 +319,62 @@
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
-        <section id="intro" class="text-center mb-12 md:mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Your Path to a Robust Lawn</h2>
-            <p class="max-w-3xl mx-auto text-gray-600">This interactive guide translates a detailed restoration report into an actionable, step-by-step plan. It's tailored to the specific climate and soil of Arlington Heights, starting in late July. Navigate through the sections to understand your environment, follow the timeline, and find the right products for a lush, healthy lawn.</p>
-            <p id="user-id-display" class="text-xs text-gray-400 mt-4"></p>
+        <section id="intro" class="text-left mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-emerald-400 mb-4">Your Path to a Robust Lawn</h2>
+            <p class="max-w-3xl text-gray-200">This interactive guide will help you reclaim your lawn in Arlington Heights. It's tailored to your local environment and will guide you through each step of the restoration process, from understanding your soil to finding the right tools.</p>
+            <p id="user-id-display" class="text-xs text-gray-500 mt-4"></p>
         </section>
 
         <section id="today-focus" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">Today's Focus</h3>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">Here are the tasks scheduled for today. Check them off as you complete them to track your progress!</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Today's Focus</h3>
+            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-gray-300 mb-6">Alright, lawn boss! Here are your missions for today. Check \'em off when you\'ve conquered them. Your lawn isn't going to fabulous itself!</p>
                 <div id="today-tasks-list" class="space-y-4">
                 </div>
             </div>
         </section>
 
         <section id="weather-section" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">Today's Weather & Watering Advice</h3>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">Get real-time weather information for Arlington Heights and personalized watering recommendations for your lawn. (Weather data is simulated)</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Today's Weather & Watering Advice</h3>
+            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-gray-300 mb-6">Let's check what Mother Nature has in store for your gorgeous greens! Your watering recommendations are based on this, so listen up. (Weather data is simulated for now.)</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div class="text-center p-4 border border-gray-200 rounded-xl bg-gray-50">
-                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Current Conditions</h4>
-                        <p class="text-4xl font-bold text-orange-500" id="current-temp">--°F</p>
-                        <p class="text-lg text-gray-700" id="feels-like">Feels like --°F</p>
-                        <p class="text-md text-gray-600" id="weather-condition">--</p>
-                        <p class="text-sm text-gray-500" id="precip-chance">Precip. Chance: --%</p>
-                        <p class="text-sm text-gray-500" id="humidity">Humidity: --%</p>
+                    <div class="text-center p-4 border border-gray-600 rounded-xl bg-gray-700">
+                        <h4 class="font-semibold text-xl text-gray-100 mb-2">Current Conditions</h4>
+                        <p class="text-4xl font-bold text-orange-400" id="current-temp">--°F</p>
+                        <p class="text-lg text-gray-200" id="feels-like">Feels like --°F</p>
+                        <p class="text-md text-gray-300" id="weather-condition">--</p>
+                        <p class="text-sm text-gray-400" id="precip-chance">Precip. Chance: --%</p>
+                        <p class="text-sm text-gray-400" id="humidity">Humidity: --%</p>
                     </div>
-                    <div class="text-center p-4 border border-gray-200 rounded-xl bg-emerald-50">
-                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Watering Recommendation</h4>
-                        <p id="watering-advice" class="text-lg text-gray-700 leading-relaxed">Checking weather...</p>
-                        <p class="text-sm text-gray-500 mt-2">Remember: Your silty soil retains moisture well. Always check soil moisture before watering.</p>
+                    <div class="text-center p-4 border border-gray-600 rounded-xl bg-emerald-700">
+                        <h4 class="font-semibold text-xl text-gray-100 mb-2">Watering Recommendation</h4>
+                        <p id="watering-advice" class="text-lg text-emerald-100 leading-relaxed">Checking weather...</p>
+                        <p class="text-sm text-emerald-200 mt-2">Remember: Your silty soil holds water like a boss. Don't drown your lawn, okay?</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="conditions" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">Understanding Your Local Environment</h3>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-600 mb-8 text-center max-w-2xl mx-auto">Success starts with knowing your specific conditions. Arlington Heights has a distinct climate and soil profile that dictates the best approach to lawn care. Below are key data points that inform this entire restoration plan.</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Understanding Your Local Environment</h3>
+            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-gray-300 mb-8">To truly master your lawn, you need to understand its battlefield: Arlington Heights' unique climate and soil. These insights are the secret sauce for a thriving lawn.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-200 bg-gray-50">
-                        <h4 class="font-semibold text-lg text-center mb-2">Typical Soil Composition</h4>
+                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-600 bg-gray-700">
+                        <h4 class="font-semibold text-lg text-center mb-2 text-gray-100">Typical Soil Composition</h4>
                         <div class="chart-container">
                             <canvas id="soilCompositionChart"></canvas>
                         </div>
                     </div>
-                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-200 bg-gray-50">
-                        <h4 class="font-semibold text-lg text-center mb-2">Average Monthly Temperatures (°F)</h4>
+                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-600 bg-gray-700">
+                        <h4 class="font-semibold text-lg text-center mb-2 text-gray-100">Average Monthly Temperatures (°F)</h4>
                          <div class="chart-container">
                             <canvas id="tempChart"></canvas>
                         </div>
                     </div>
-                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-200 bg-gray-50">
-                        <h4 class="font-semibold text-lg text-center mb-2">Key Soil Nutrient Levels</h4>
+                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-600 bg-gray-700">
+                        <h4 class="font-semibold text-lg text-center mb-2 text-gray-100">Key Soil Nutrient Levels</h4>
                         <div class="chart-container">
                             <canvas id="nutrientChart"></canvas>
                         </div>
@@ -337,41 +384,41 @@
         </section>
 
         <section id="soil-test-input" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">Enter Your Soil Test Results</h3>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-                <p class="text-gray-600 mb-6 text-center">Input your actual soil test values to get customized nutrient recommendations and insights.</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Enter Your Soil Test Results</h3>
+            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+                <p class="text-gray-300 mb-6">Got your lab results? Punch them in here for personalized, no-nonsense nutrient advice. Let's make that lawn pop!</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div>
-                        <label for="ph-input" class="block text-sm font-medium text-gray-700">Soil pH</label>
-                        <input type="number" id="ph-input" step="0.1" min="4" max="9" value="7.2" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-600 focus:ring-emerald-600 sm:text-sm p-2">
+                        <label for="ph-input" class="block text-sm font-medium text-gray-300">Soil pH</label>
+                        <input type="number" id="ph-input" step="0.1" min="4" max="9" value="7.2" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
                     </div>
                     <div>
-                        <label for="phosphorus-input" class="block text-sm font-medium text-gray-700">Phosphorus (ppm)</label>
-                        <input type="number" id="phosphorus-input" step="0.1" min="0" value="35.5" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-600 focus:ring-emerald-600 sm:text-sm p-2">
+                        <label for="phosphorus-input" class="block text-sm font-medium text-gray-300">Phosphorus (ppm)</label>
+                        <input type="number" id="phosphorus-input" step="0.1" min="0" value="35.5" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
                     </div>
                     <div>
-                        <label for="potassium-input" class="block text-sm font-medium text-gray-700">Potassium (ppm)</label>
-                        <input type="number" id="potassium-input" step="0.1" min="0" value="215.5" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-600 focus:ring-emerald-600 sm:text-sm p-2">
+                        <label for="potassium-input" class="block text-sm font-medium text-gray-300">Potassium (ppm)</label>
+                        <input type="number" id="potassium-input" step="0.1" min="0" value="215.5" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
                     </div>
                     <div>
-                        <label for="calcium-input" class="block text-sm font-medium text-gray-700">Calcium (ppm)</label>
-                        <input type="number" id="calcium-input" step="0.1" min="0" value="2894.0" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-600 focus:ring-emerald-600 sm:text-sm p-2">
+                        <label for="calcium-input" class="block text-sm font-medium text-gray-300">Calcium (ppm)</label>
+                        <input type="number" id="calcium-input" step="0.1" min="0" value="2894.0" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="iron-input" class="block text-sm font-medium text-gray-700">Iron (ppm)</label>
-                        <input type="number" id="iron-input" step="0.1" min="0" value="150.5" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-emerald-600 focus:ring-emerald-600 sm:text-sm p-2">
+                        <label for="iron-input" class="block text-sm font-medium text-gray-300">Iron (ppm)</label>
+                        <input type="number" id="iron-input" step="0.1" min="0" value="150.5" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
                     </div>
                 </div>
                 <button id="get-soil-recommendations-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg font-semibold transition">Get Recommendations</button>
-                <div id="soil-recommendations-output" class="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-gray-700 hidden">
+                <div id="soil-recommendations-output" class="mt-6 p-4 bg-emerald-900 border border-emerald-700 rounded-lg text-emerald-100 hidden">
                 </div>
             </div>
         </section>
 
         <section id="plan" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">The Restoration Plan: A Seasonal Timeline</h3>
-            <div class="w-full max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <div class="border-b border-gray-200 mb-6">
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">The Restoration Plan: A Seasonal Timeline</h3>
+            <div class="w-full max-w-4xl mx-auto bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                <div class="border-b border-gray-600 mb-6">
                     <nav class="-mb-px flex justify-center space-x-4 md:space-x-8" aria-label="Tabs">
                         <button id="tab-phase1" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm md:text-base">Phase 1: Prep (Late July - Early Aug)</button>
                         <button id="tab-phase2" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm md:text-base">Phase 2: Restore (Mid-Aug - Sept)</button>
@@ -381,27 +428,27 @@
 
                 <div id="content-phase1" class="phase-content mt-8">
                     <div class="space-y-6">
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-1">
-                                <span class="text-lg font-semibold text-gray-800">1. Comprehensive Soil Testing</span>
+                                <span class="text-lg font-semibold text-emerald-400">1. Comprehensive Soil Testing</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-1" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-4">This is the cornerstone of the plan. A lab test provides precise data on pH and nutrient levels, removing guesswork. Collect 10-15 random samples from a 3-6 inch depth, mix them, and send to a certified lab. This data-driven approach ensures all treatments are tailored to your lawn's exact needs.</p>
-                                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-sm text-gray-700">
-                                    <strong class="font-semibold">Why it's critical:</strong> Soil pH affects nutrient availability. Without a test, you might apply fertilizers your lawn can't even use, wasting time and money.
+                                <p class="text-gray-300 mb-4">The cornerstone of this plan. A lab test reveals precise pH and nutrient levels, eliminating guesswork. Collect 10-15 random 3-6" samples, mix, dry, and send to a lab. Tailored treatments require accurate data.</p>
+                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                    <strong class="font-semibold">Why it's critical:</strong> Soil pH directly impacts nutrient absorption. Guessing means wasted time, money, and potentially harming your lawn.
                                 </div>
                             </div>
                         </div>
-                         <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                         <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-2">
-                                <span class="text-lg font-semibold text-gray-800">2. Weed & Pest Identification</span>
+                                <span class="text-lg font-semibold text-emerald-400">2. Weed & Pest Identification</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-2" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-4">Identify existing weeds (dandelion, clover, crabgrass) and pests (grubs). In late July's heat, control should be cautious. Hand-pulling is effective for small areas. If using herbicides, spot-treat only and avoid application on days over 85°F. The main chemical attack is best saved for the cooler fall.</p>
-                                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-sm text-gray-700">
-                                    <strong class="font-semibold">Key Strategy:</strong> The goal now is containment, not eradication. Aggressive chemical use in summer heat can stress your grass more than the weeds.
+                                <p class="text-gray-300 mb-4">Identify those invaders (dandelion, clover, crabgrass?) and any creepy-crawly pests (grubs!). In July heat, focus on careful hand-pulling. Avoid broad chemical sprays above 85°F to keep your grass happy. Big chemical battles are for cooler fall days.</p>
+                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                    <strong class="font-semibold">Key Strategy:</strong> Right now, it's about containment. Over-aggressive chemical use in summer just stresses your grass more. Patience, grasshopper.
                                 </div>
                             </div>
                         </div>
@@ -410,42 +457,42 @@
 
                 <div id="content-phase2" class="phase-content mt-8 hidden">
                     <div class="space-y-6">
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-3">
-                                <span class="text-lg font-semibold text-gray-800">1. Aeration & Dethatching</span>
+                                <span class="text-lg font-semibold text-emerald-400">1. Aeration & Dethatching</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-3" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-4">This is the most important window for restoration. In late August/September, use a core aerator to reduce soil compaction. This allows oxygen, water, and nutrients to reach the roots. If thatch (dead grass layer) is over 0.5 inches thick, use a dethatcher. Perform when soil is moist but not wet.</p>
-                                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-sm text-gray-700">
-                                    <strong class="font-semibold">Pro Tip:</strong> Aerating before overseeding creates perfect pockets for seeds to germinate, dramatically increasing success rates.
+                                <p class="text-gray-300 mb-4">This is the restoration hot zone! In late August/September, rent a core aerator to de-compact your soil. This lets your lawn breathe and soak up water/nutrients. If thatch (that dead grass layer) is over 0.5 inches, dethatch. Ensure soil is moist.</p>
+                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                    <strong class="font-semibold">Pro Tip:</strong> Aerating before overseeding creates perfect little pockets for new seeds. It's like VIP seating for your baby grass!
                                 </div>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-4">
-                                <span class="text-lg font-semibold text-gray-800">2. Overseeding with a Quality Blend</span>
+                                <span class="text-lg font-semibold text-emerald-400">2. Overseeding with a Quality Blend</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-4" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-4">Immediately after aeration, spread a high-quality cool-season grass seed blend. A mix of Kentucky Bluegrass, Perennial Ryegrass, and Fescue is ideal for northern Illinois. This blend provides quick cover, dense growth, and shade/drought tolerance. Cover lightly with peat moss or straw and water daily until germination (10-14 days).</p>
-                                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-sm text-gray-700">
+                                <p class="text-gray-300 mb-4">Right after aeration, spread that premium cool-season grass blend. A mix of Kentucky Bluegrass, Perennial Ryegrass, and Fescue is your Northern Illinois dream team! Lightly cover with peat moss/straw, then water daily until sprouts appear (10-14 days).</p>
+                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
                                     <strong class="font-semibold">The Ideal Blend:</strong> <br>
-                                    - <strong class="text-gray-700">Kentucky Bluegrass:</strong> For density & self-repair. <br>
-                                    - <strong class="text-gray-700">Perennial Ryegrass:</strong> For quick germination. <br>
-                                    - <strong class="text-gray-700">Fescue (Tall/Fine):</strong> For drought & shade tolerance.
+                                    - <strong class="text-emerald-200">Kentucky Bluegrass:</strong> For luscious density & self-healing. <br>
+                                    - <strong class="text-emerald-200">Perennial Ryegrass:</strong> For quick, show-off germination. <br>
+                                    - <strong class="text-emerald-200">Fescue (Tall/Fine):</strong> For drought and shade superpowers.
                                 </div>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-5">
-                                <span class="text-lg font-semibold text-gray-800">3. Apply Starter Fertilizer</span>
+                                <span class="text-lg font-semibold text-emerald-400">3. Apply Starter Fertilizer</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-5" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-4">At the time of seeding, apply a starter fertilizer. These formulas are high in phosphorus (the 'P' in N-P-K), the key nutrient for strong root development. This gives your new seedlings the best possible start to establish a robust root system before winter.</p>
-                                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-sm text-gray-700">
-                                    <strong class="font-semibold">Look for NPK Ratios like:</strong> 10-18-10 or 18-24-12. The middle number (Phosphorus) should be the highest.
+                                <p class="text-gray-300 mb-4">Fertilize with a starter formula while seeding. These have extra phosphorus – the secret ingredient for monster root growth. Give those baby roots the best head start before winter arrives!</p>
+                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                    <strong class="font-semibold">NPK Magic:</strong> Look for ratios like 10-18-10 or 18-24-12. That middle number (Phosphorus) is your roots\' best friend.
                                 </div>
                             </div>
                         </div>
@@ -454,38 +501,38 @@
 
                 <div id="content-phase3" class="phase-content mt-8 hidden">
                     <div class="space-y-6">
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-6">
-                                <span class="text-lg font-semibold text-gray-800">Mowing & Watering Strategy</span>
+                                <span class="text-lg font-semibold text-emerald-400">Mowing & Watering Strategy</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-6" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-2"><strong class="font-semibold">Mowing:</strong> Mow high, at 3 to 3.5 inches. Never remove more than one-third of the blade at a time (the "one-third rule"). Taller grass shades out weeds and develops deeper roots. Keep blades sharp!</p>
-                                <p class="text-gray-600"><strong class="font-semibold">Watering:</strong> Water deeply but infrequently (1 to 1.5 inches per week). This encourages deep root growth. Water in the early morning to reduce evaporation. Remember your silty soil retains moisture well, so check for dryness before watering.</p>
+                                <p class="text-gray-300 mb-2"><strong class="font-semibold">Mowing:</strong> Keep it tall, 3-3.5 inches. Only ever cut a third of the blade – no extreme makeovers! Sharp blades = happy grass.</p>
+                                <p class="text-gray-300"><strong class="font-semibold">Watering:</strong> Go deep, go infrequent (1-1.5 inches/week). Morning is best. Your silty soil likes to hold water, so check before you soak.</p>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-7">
-                                <span class="text-lg font-semibold text-gray-800">Annual Fertilization Schedule</span>
+                                <span class="text-lg font-semibold text-emerald-400">Annual Fertilization Schedule</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-7" class="details-panel px-5 pb-5">
-                                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                    <li><strong class="font-semibold">Early Spring (Feb-Apr):</strong> Apply a slow-release fertilizer as the lawn greens up.</li>
-                                    <li><strong class="font-semibold">Late Spring (Apr-Jun):</strong> Second feeding 6-8 weeks after the first.</li>
-                                    <li><strong class="font-semibold">Summer (Jun-Jul):</strong> Use a summer-specific formula if needed, and only with adequate water.</li>
-                                    <li><strong class="font-semibold text-emerald-600">Fall (Sept & Nov):</strong> The most important feedings! Use a "Winterizer" fertilizer to build strong roots and ensure a quick green-up next spring.</li>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li><strong class="font-semibold">Early Spring (Feb-Apr):</strong> First feeding. Gentle wake-up call for your grass.</li>
+                                    <li><strong class="font-semibold">Late Spring (Apr-Jun):</strong> Second feeding, 6-8 weeks later. Keep the good times rolling!</li>
+                                    <li><strong class="font-semibold">Summer (Jun-Jul):</strong> Optional. Only if needed and if you can provide enough water – don't dry-fry your lawn!</li>
+                                    <li><strong class="font-semibold text-emerald-400">Fall (Sept & Nov):</strong> The Big Ones! "Winterizer" for superhero roots and next spring's award-winning green.</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-50 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-8">
-                                <span class="text-lg font-semibold text-gray-800">Integrated Pest & Weed Management</span>
+                                <span class="text-lg font-semibold text-emerald-400">Integrated Pest & Weed Management</span>
                                 <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-8" class="details-panel px-5 pb-5">
-                                <p class="text-gray-600 mb-2"><strong class="font-semibold">Proactive (Pre-emergent):</strong> Apply in late April/early May to prevent crabgrass. Note: this will also prevent grass seed from growing.</p>
-                                <p class="text-gray-600"><strong class="font-semibold">Reactive (Post-emergent):</strong> Spot-treat existing broadleaf weeds in the fall. This is when herbicides are most effective as weeds are storing energy in their roots. Monitor for grubs in late summer and treat if necessary.</p>
+                                <p class="text-gray-300 mb-2"><strong class="font-semibold">Proactive (Pre-emergent):</strong> Spring (late Apr/early May) for crabgrass. Stops \'em before they start. (Don\'t apply if you\'re seeding, duh.)</p>
+                                <p class="text-gray-300"><strong class="font-semibold">Reactive (Post-emergent):</strong> Fall is prime time for existing broadleaf weeds. They\'re vulnerable then. Check for grubs in late summer and give \'em what for!</p>
                             </div>
                         </div>
                     </div>
@@ -494,23 +541,23 @@
         </section>
 
         <section id="past-tasks" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">Past Tasks Completed</h3>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">Review your completed tasks and see the progress you've made towards a healthier lawn!</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Past Tasks Completed</h3>
+            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-gray-300 mb-6">Look at you, getting things done! Here's a glorious record of your lawn-conquering achievements. Pat yourself on the back, you earned it!</p>
                 <div id="completed-tasks-list" class="space-y-4">
                 </div>
             </div>
         </section>
 
         <section id="tools" class="scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">Tools & Products Checklist</h3>
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Tools & Products Checklist</h3>
+            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+                <div class="flex flex-wrap justify-start gap-2 mb-8">
                     <button class="filter-btn bg-emerald-600 text-white py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-emerald-700">All</button>
-                    <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-300" data-filter="tool">Tools</button>
-                    <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-300" data-filter="seed">Seed</button>
-                    <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-300" data-filter="fertilizer">Fertilizers</button>
-                    <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-300" data-filter="control">Weed/Pest Control</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="tool">Tools</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="seed">Seed</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="fertilizer">Fertilizers</button>
+                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="control">Weed/Pest Control</button>
                 </div>
                 <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     </div>
@@ -519,8 +566,8 @@
 
     </main>
 
-    <footer class="bg-white mt-16">
-        <div class="container mx-auto px-8 py-6 text-center text-gray-500">
+    <footer class="bg-gray-800 mt-16">
+        <div class="container mx-auto px-8 py-6 text-center text-gray-400">
             <p>&copy; 2024 Interactive Lawn Plan. Information sourced from the Comprehensive Lawn Restoration Report.</p>
         </div>
     </footer>
@@ -528,33 +575,33 @@
     <script>
         function getCategoryColor(category) {
             switch (category) {
-                case 'tool': return 'bg-blue-100 text-blue-800';
-                case 'seed': return 'bg-yellow-100 text-yellow-800';
-                case 'fertilizer': return 'bg-green-100 text-green-800';
-                case 'control': return 'bg-red-100 text-red-800';
-                case 'Prep': return 'bg-purple-100 text-purple-800';
-                case 'Restore': return 'bg-orange-100 text-orange-800';
-                case 'Maintain': return 'bg-teal-100 text-teal-800';
-                default: return 'bg-gray-100 text-gray-800';
+                case 'tool': return 'bg-blue-800 text-blue-100'; /* Darker blue for tools */
+                case 'seed': return 'bg-yellow-800 text-yellow-100'; /* Darker yellow for seed */
+                case 'fertilizer': return 'bg-green-800 text-green-100'; /* Darker green for fertilizer */
+                case 'control': return 'bg-red-800 text-red-100'; /* Darker red for control */
+                case 'Prep': return 'bg-purple-800 text-purple-100';
+                case 'Restore': return 'bg-orange-800 text-orange-100';
+                case 'Maintain': return 'bg-teal-800 text-teal-100';
+                default: return 'bg-gray-800 text-gray-100';
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             const productData = [
-                { name: 'Lab-based Soil Test Kit', category: 'tool', desc: 'For accurate pH and nutrient analysis.' },
-                { name: 'Broadcast/Drop Spreader', category: 'tool', desc: 'For even application of seed and fertilizer.' },
-                { name: 'Core Aerator', category: 'tool', desc: 'Rentable tool to reduce soil compaction.' },
-                { name: 'Dethatcher', category: 'tool', desc: 'Rentable tool to remove excess thatch.' },
-                { name: 'Lawn Mower (Sharp Blades)', category: 'tool', desc: 'Essential for proper mowing practices.' },
-                { name: 'Garden Rake', category: 'tool', desc: 'For preparing seedbeds.' },
-                { name: 'Cool-Season Grass Blend', category: 'seed', desc: 'Mix of Kentucky Bluegrass, Ryegrass, and Fescue.' },
-                { name: 'Starter Fertilizer', category: 'fertilizer', desc: 'High-phosphorus formula for new seeds (e.g., 10-18-10).' },
-                { name: 'Fall/Winterizer Fertilizer', category: 'fertilizer', desc: 'High-potassium formula for winter hardiness (e.g., 32-0-10).' },
-                { name: 'Spring/Summer Fertilizer', category: 'fertilizer', desc: 'Slow-release formulas for seasonal growth.' },
-                { name: 'Post-Emergent Broadleaf Herbicide', category: 'control', desc: 'For existing broadleaf weeds (e.g., contains 2,4-D, MCPP).' },
-                { name: 'Pre-Emergent Herbicide', category: 'control', desc: 'For preventing crabgrass in spring.' },
-                { name: 'Grub Control Product', category: 'control', desc: 'Immediate (Dylox) or long-term (Nematodes) options.' },
-                { name: 'Peat Moss / Straw', category: 'seed', desc: 'Light covering to protect new seeds.' },
+                { name: 'Lab-based Soil Test Kit', category: 'tool', desc: 'For precise pH and nutrient analysis. No more guessing games!' },
+                { name: 'Broadcast or Drop Spreader', category: 'tool', desc: 'Ensures your seed and fertilizer hit every spot, perfectly.' },
+                { name: 'Core Aerator', category: 'tool', desc: 'Rent one, or hire a pro. This tool helps your lawn breathe.' },
+                { name: 'Dethatcher', category: 'tool', desc: 'Removes gunk (thatch) that chokes your grass. Get it out!' },
+                { name: 'Lawn Mower (Sharp Blades)', category: 'tool', desc: 'A clean cut is a happy cut. Keep those blades razor-sharp!' },
+                { name: 'Garden Rake', category: 'tool', desc: 'Your trusty sidekick for seed prep and spreading magic.' },
+                { name: 'Cool-Season Grass Blend', category: 'seed', desc: 'The dream team: Kentucky Bluegrass, Ryegrass, and Fescue for a lush, resilient lawn.' },
+                { name: 'Starter Fertilizer', category: 'fertilizer', desc: 'High-phosphorus formula for baby roots. Think of it as protein shake for sprouts.' },
+                { name: 'Fall/Winterizer Fertilizer', category: 'fertilizer', desc: 'High-potassium goodness for winter survival and a spring explosion.' },
+                { name: 'Spring/Summer Fertilizer', category: 'fertilizer', desc: 'Seasonal boosts for when your lawn needs an extra kick.' },
+                { name: 'Post-Emergent Broadleaf Herbicide', category: 'control', desc: 'Targets existing broadleaf invaders. Apply with precision, then watch \'em wilt.' },
+                { name: 'Pre-Emergent Herbicide', category: 'control', desc: 'Your secret weapon against crabgrass. Stops it before it even sprouts!' },
+                { name: 'Grub Control Product', category: 'control', desc: 'For when tiny monsters attack. Immediate (Dylox) or long-term (Nematodes) solutions.' },
+                { name: 'Peat Moss / Straw', category: 'seed', desc: 'A cozy blanket for your new seeds, keeping them moist and safe.' },
             ];
 
             const productGrid = document.getElementById('product-grid');
@@ -566,11 +613,11 @@
                 
                 filteredProducts.forEach(product => {
                     const card = document.createElement('div');
-                    card.className = 'product-card border rounded-xl p-4 flex flex-col justify-between bg-gray-50';
+                    card.className = 'product-card border rounded-xl p-4 flex flex-col justify-between bg-gray-700'; /* Darker card background */
                     card.innerHTML = `
                         <div>
-                            <p class="font-semibold text-gray-800">${product.name}</p>
-                            <p class="text-sm text-gray-600">${product.desc}</p>
+                            <p class="font-semibold text-emerald-300">${product.name}</p> /* Lighter emerald for product names */
+                            <p class="text-sm text-gray-300">${product.desc}</p> /* Lighter gray for descriptions */
                         </div>
                         <span class="text-xs font-medium uppercase mt-3 px-2 py-1 rounded-full self-start ${getCategoryColor(product.category)}">${product.category}</span>
                     `;
@@ -582,10 +629,10 @@
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => {
                         b.classList.remove('bg-emerald-600', 'text-white');
-                        b.classList.add('bg-gray-200', 'text-gray-700');
+                        b.classList.add('bg-gray-700', 'text-gray-200'); /* Adjusted inactive button colors */
                     });
                     btn.classList.add('bg-emerald-600', 'text-white');
-                    btn.classList.remove('bg-gray-200', 'text-gray-700');
+                    btn.classList.remove('bg-gray-700', 'text-gray-200');
                     renderProducts(btn.dataset.filter);
                 });
             });
@@ -661,8 +708,8 @@
                     datasets: [{
                         label: 'Soil Composition',
                         data: [63, 23, 14],
-                        backgroundColor: ['#A89C94', '#6F6259', '#D4C4B8'], /* Earthy tones for soil */
-                        borderColor: '#F8FAFC', /* Match body background */
+                        backgroundColor: ['#6F6259', '#4A423B', '#9B8D80'], /* Darker earthy tones */
+                        borderColor: '#1A202C', /* Match body background */
                         borderWidth: 4
                     }]
                 },
@@ -670,7 +717,7 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { position: 'bottom' },
+                        legend: { labels: { color: '#E2E8F0' }, position: 'bottom' }, /* Light legend text */
                         tooltip: { callbacks: { label: (context) => `${context.label}: ${context.raw}%` } }
                     }
                 }
@@ -684,15 +731,15 @@
                     datasets: [{
                         label: 'Avg High Temp',
                         data: [74, 81, 84, 82, 75, 63],
-                        borderColor: '#F97316', /* Orange-500 */
-                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                        borderColor: '#FB923C', /* Orange-400 */
+                        backgroundColor: 'rgba(251, 146, 60, 0.1)',
                         fill: true,
                         tension: 0.4
                     }, {
                         label: 'Avg Low Temp',
                         data: [52, 61, 65, 63, 55, 44],
-                        borderColor: '#3B82F6', /* Blue-500 */
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderColor: '#60A5FA', /* Blue-400 */
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
                         fill: true,
                         tension: 0.4
                     }]
@@ -700,8 +747,11 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom' } },
-                    scales: { y: { beginAtZero: false, ticks: { callback: (value) => `${value}°F` } } }
+                    plugins: { legend: { labels: { color: '#E2E8F0' }, position: 'bottom' } }, /* Light legend text */
+                    scales: {
+                        x: { ticks: { color: '#A0AEC0' }, grid: { color: '#4A5568' } }, /* Darker grid lines */
+                        y: { ticks: { color: '#A0AEC0', callback: (value) => `${value}°F` }, grid: { color: '#4A5568' } } /* Darker grid lines */
+                    }
                 }
             });
 
@@ -713,7 +763,7 @@
                     datasets: [{
                         label: 'Nutrient Level (ppm)',
                         data: [35.5, 215.5, 2894.0, 150.5],
-                        backgroundColor: ['#059669', '#10B981', '#34D399', '#6EE7B7'], /* Emerald shades */
+                        backgroundColor: ['#10B981', '#34D399', '#6EE7B7', '#A7F3D0'], /* Lighter emerald shades for visibility on dark */
                     }]
                 },
                 options: {
@@ -723,14 +773,18 @@
                     plugins: { legend: { display: false } },
                     scales: {
                         x: {
-                            type: 'logarithmic',
-                            ticks: {
+                            ticks: { color: '#A0AEC0',
                                 callback: function(value, index, values) {
                                     if (value === 10 || value === 100 || value === 1000 || value === 3000) {
                                         return value.toString();
                                     }
                                 }
-                            }
+                            },
+                            grid: { color: '#4A5568' } /* Darker grid lines */
+                        },
+                        y: {
+                            ticks: { color: '#A0AEC0' }, /* Light text for labels */
+                            grid: { color: '#4A5568' } /* Darker grid lines */
                         }
                     }
                 }
@@ -769,11 +823,11 @@
 
         function getWateringRecommendation(currentTemp, precipChance) {
             if (precipChance >= 40) {
-                return "Rain is expected today! Defer watering your lawn. Check soil moisture after rainfall, as silty soil retains moisture well.";
+                return "Rain's on the forecast! Skip the sprinklers. But seriously, check that soil after the downpour – your silty turf drinks smart.";
             } else if (currentTemp >= 85) {
-                return "It's hot today! Your lawn is under stress. Consider watering deeply if the soil feels dry, but always check moisture levels. Silty soil retains moisture, so avoid overwatering.";
+                return "It's a scorcher! Your lawn's probably sweating. If it's feeling thirsty, give it a deep drink, but don't overdo it. That silty soil holds on tight to moisture!";
             } else {
-                return "No specific concerns. Water deeply (1 to 1.5 inches per week) but infrequently, in the early morning. Let the topsoil dry slightly between waterings.";
+                return "No drama today. Water deeply (1-1.5 inches/week) but don't babysit it with daily sprinkles. Early mornings are best, and let that topsoil dry out a bit.";
             }
         }
 
@@ -810,39 +864,39 @@
             recs.push('<strong>Soil Test Recommendations:</strong>');
 
             if (ph > 7.5) {
-                recs.push(`Your soil pH (${ph}) is high. This can reduce the availability of some nutrients like nitrogen and iron. Significant pH reduction in high-carbonate soils is difficult; focus on proper fertilization and cultural practices.`);
+                recs.push(`Your soil pH (${ph}) is a bit high. Some nutrients might be playing hard to get. Focus on proper feeding, as drastic pH changes are tough here.`);
             } else if (ph < 6.0) {
-                recs.push(`Your soil pH (${ph}) is low. Consider applying lime to slowly raise the pH. Consult a local expert for application rates.`);
+                recs.push(`Your soil pH (${ph}) is low. Time for some lime to balance things out. Chat with a local expert for the right dose!`);
             } else {
-                recs.push(`Your soil pH (${ph}) is within the optimal range for cool-season grasses. Focus on balanced fertilization.`);
+                recs.push(`Your soil pH (${ph}) is spot on! Keep up the good work with balanced feeding.`);
             }
 
             if (p < 20) {
-                recs.push(`Your Phosphorus (${p} ppm) is low. Apply a starter fertilizer (high in phosphorus, e.g., 10-18-10) or a specific phosphorus supplement to promote root growth.`);
+                recs.push(`Phosphorus (${p} ppm) is low. Your roots are hungry! Give them a starter fertilizer (high P, like 10-18-10).`);
             } else if (p > 50) {
-                recs.push(`Your Phosphorus (${p} ppm) is high. Avoid phosphorus-rich fertilizers to prevent environmental runoff and imbalances.`);
+                recs.push(`Phosphorus (${p} ppm) is high. Lay off the P-heavy stuff to protect our waterways and avoid imbalances.`);
             } else {
-                recs.push(`Your Phosphorus (${p} ppm) is at a healthy level. Continue with balanced fertilization.`);
+                recs.push(`Phosphorus (${p} ppm) is just right. Keep it balanced, superstar!`);
             }
 
             if (k < 120) {
-                recs.push(`Your Potassium (${k} ppm) is low. Apply a balanced fertilizer or a high-potassium "winterizer" fertilizer to improve stress resistance.`);
+                recs.push(`Potassium (${k} ppm) is low. Boost its stress resistance with a balanced fertilizer or a winterizer. Make it tough!`);
             } else if (k > 250) {
-                 recs.push(`Your Potassium (${k} ppm) is quite high. Monitor levels but generally, no extra potassium is needed.`);
+                 recs.push(`Potassium (${k} ppm) is super high. You're set! No extra K needed, just monitor.`);
             } else {
-                recs.push(`Your Potassium (${k} ppm) is at a healthy level. Continue with balanced fertilization.`);
+                recs.push(`Potassium (${k} ppm) is happy. Continue with your balanced feeding routine.`);
             }
 
             if (ca < 1000) {
-                recs.push(`Your Calcium (${ca} ppm) is low. Consider adding a calcium source like gypsum, especially if soil structure or drainage is an issue.`);
+                recs.push(`Calcium (${ca} ppm) is low. Consider gypsum if your soil feels a bit chunky. It helps with structure and drainage.`);
             } else {
-                recs.push(`Your Calcium (${ca} ppm) is at a healthy level.`);
+                recs.push(`Calcium (${ca} ppm) is perfectly fine. You're doing great!`);
             }
 
             if (fe < 50) {
-                recs.push(`Your Iron (${fe} ppm) is low. Consider an iron supplement to enhance greening, especially if pH is high as this can affect iron availability.`);
+                recs.push(`Iron (${fe} ppm) is low. Want a deeper green? An iron supplement might be your ticket, especially if pH is high.`);
             } else {
-                recs.push(`Your Iron (${fe} ppm) is at a healthy level. Your lawn should have good color.`);
+                recs.push(`Iron (${fe} ppm) is golden! Expect vibrant color.`);
             }
 
             return recs;
