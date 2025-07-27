@@ -39,7 +39,6 @@
                     if (user) {
                         userId = user.uid;
                         isAuthReady = true;
-                        document.getElementById('user-id-display').textContent = `User ID: ${userId}`;
                         fetchAndDisplayTasks();
                     } else {
                         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
@@ -53,7 +52,6 @@
                             console.error("Firebase Auth Error:", error);
                             userId = crypto.randomUUID();
                             isAuthReady = true;
-                            document.getElementById('user-id-display').textContent = `User ID (Anon Fallback): ${userId}`;
                             fetchAndDisplayTasks();
                         }
                     }
@@ -62,7 +60,6 @@
                 console.error("Firebase config not found. Running without persistence.");
                 userId = crypto.randomUUID();
                 isAuthReady = true;
-                document.getElementById('user-id-display').textContent = `User ID (No Firebase): ${userId}`;
                 fetchAndDisplayTasks();
             }
 
@@ -159,14 +156,14 @@
                 tasks.forEach(task => {
                     if (!task.completed && task.dueDate === today) {
                         const taskElement = document.createElement('div');
-                        taskElement.className = 'flex items-start bg-gray-800 text-gray-100 p-4 rounded-xl shadow-md mb-3';
+                        taskElement.className = 'flex items-start bg-card-bg text-main-text p-4 rounded-xl shadow-md mb-3';
                         taskElement.innerHTML = `
-                            <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-emerald-400 focus:ring-emerald-400 border-gray-600 rounded">
+                            <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-accent focus:ring-accent border-subtle-border rounded">
                             <div class="flex-1">
-                                <label for="task-${task.id}" class="text-lg font-semibold text-emerald-400">${task.name}</label>
-                                <p class="text-sm text-gray-300">${task.description}</p>
+                                <label for="task-${task.id}" class="text-lg font-semibold text-accent">${task.name}</label>
+                                <p class="text-sm text-secondary-text">${task.description}</p>
                                 <span class="text-xs font-medium uppercase mt-1 px-2 py-1 rounded-full self-start ${getCategoryColor(task.category)}">${task.category}</span>
-                                <p class="text-xs text-gray-500 mt-1">Due: ${task.dueDate}</p>
+                                <p class="text-xs text-secondary-text mt-1">Due: ${task.dueDate}</p>
                             </div>
                         `;
                         todayTasksContainer.appendChild(taskElement);
@@ -175,9 +172,9 @@
                         });
                     } else if (task.completed) {
                         const completedTaskElement = document.createElement('div');
-                        completedTaskElement.className = 'flex items-start bg-gray-700 p-4 rounded-xl shadow-sm mb-3 line-through text-gray-400';
+                        completedTaskElement.className = 'flex items-start bg-sub-card-bg p-4 rounded-xl shadow-sm mb-3 line-through text-secondary-text';
                         completedTaskElement.innerHTML = `
-                            <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-emerald-600 focus:ring-emerald-600 border-gray-300 rounded" checked disabled>
+                            <input type="checkbox" id="task-${task.id}" class="mt-1 mr-3 h-5 w-5 text-accent-dark focus:ring-accent-dark border-subtle-border rounded" checked disabled>
                             <div class="flex-1">
                                 <label for="task-${task.id}" class="text-lg font-semibold">${task.name}</label>
                                 <p class="text-sm">${task.description}</p>
@@ -190,17 +187,17 @@
                 });
 
                 if (todayTasksContainer.children.length === 0) {
-                    todayTasksContainer.innerHTML = `<p class="text-gray-400 text-center py-4">No tasks scheduled for today. Time for some relaxation, or perhaps a sassy joke about gardening: "${randomTip}"</p>`;
+                    todayTasksContainer.innerHTML = `<p class="text-secondary-text text-center py-4">No tasks scheduled for today. Time for some relaxation, or perhaps a sassy joke about gardening: "${randomTip}"</p>`;
                 }
                 if (completedTasksContainer.children.length === 0) {
-                    completedTasksContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No tasks completed yet. Get to it, superstar!</p>';
+                    completedTasksContainer.innerHTML = '<p class="text-secondary-text text-center py-4">No tasks completed yet. Get to it, superstar!</p>';
                 }
             }
         });
     </script>
-    <!-- Chosen Palette: Lush Modern Dark Palette -->
-    <!-- Application Structure Plan: A task-oriented, chronological single-page application. The structure guides the user from understanding their local environment to executing a seasonal plan. It starts with a 'Local Conditions' dashboard, moves to a 'Today's Focus' for daily actionable tasks (with playful language), then to a 'Today's Weather & Watering Advice' section, a phased timeline ('Phase 1: Prep', 'Phase 2: Restoration', 'Phase 3: Maintenance'), followed by 'Past Tasks', a 'Soil Test Input' tool, and ending with a 'Tools & Products' checklist. This structure was chosen to make a dense report digestible and actionable, allowing users to focus on what needs to be done 'now' while still seeing the full picture and tracking progress. Interactions like tab-switching for seasons and expanding details for tasks prevent information overload, while checkboxes, a dedicated completed list, and dynamic weather/soil input enhance daily usability and personalization. -->
-    <!-- Visualization & Content Choices: 
+    <!-- Chosen Palette: Simple Monochromatic Dark -->
+    <!-- Application Structure Plan: A task-oriented, chronological single-page application. The structure guides the user from understanding their local environment to executing a seasonal plan. It starts with a 'Today's Focus' for daily actionable tasks (with playful language), then to a 'Today's Weather & Watering Advice' section, a phased timeline ('Phase 1: Prep', 'Phase 2: Restoration', 'Phase 3: Maintenance'), followed by 'Past Tasks', a 'Soil Test Input' tool, and ending with a 'Tools & Products' checklist. This structure was chosen to make a dense report digestible and actionable, allowing users to focus on what needs to be done 'now' while still seeing the full picture and tracking progress. Interactions like tab-switching for seasons and expanding details for tasks prevent information overload, while checkboxes, a dedicated completed list, and dynamic weather/soil input enhance daily usability and personalization. -->
+    <!-- Visualization & Content Choices:
         - Local Conditions: Goal: Inform. Method: Chart.js line (temp), doughnut (soil), and bar (nutrients) charts. Interaction: Hover tooltips. Justification: Visualizes complex data for quick understanding.
         - Today's Focus: Goal: Act. Method: HTML list with checkboxes. Interaction: Click to check off tasks, which updates persistence. Justification: Provides immediate, actionable steps for the current day, with a fun tone.
         - Today's Weather & Watering Advice: Goal: Inform/Advise. Method: HTML text display. Interaction: Dynamic text based on mocked weather. Justification: Provides real-time context for daily decisions.
@@ -212,28 +209,29 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1A202C; /* Gray-900 */
-            color: #E2E8F0; /* Gray-200 */
+            background-color: #1A1A1A; /* Darkest background */
+            color: #E0E0E0; /* Light text for main content */
         }
         header {
-            background-color: #2D3748; /* Gray-800 */
+            background-color: #262626; /* Slightly lighter dark for header */
+            border-bottom: 1px solid #333333; /* Darker border */
         }
         .tab-active {
-            border-color: #059669; /* Emerald-600 */
-            color: #34D399; /* Emerald-400 */
+            border-color: #60A5FA; /* Accent Blue */
+            color: #60A5FA; /* Accent Blue */
             font-weight: 600;
         }
         .tab-inactive {
             border-color: transparent;
-            color: #A0AEC0; /* Gray-400 */
+            color: #A3A3A3; /* Lighter gray for inactive tabs */
         }
         .task-card {
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12); /* Default subtle shadow, darker for dark theme */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.24); /* Darker shadow */
         }
         .task-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.24);
         }
         .details-panel {
             max-height: 0;
@@ -258,60 +256,84 @@
                 height: 350px;
             }
         }
-        /* Custom styles for the dark theme */
-        .bg-gray-800 { background-color: #2D3748; } /* Cards/sections */
-        .bg-gray-900 { background-color: #1A202C; } /* Body background */
-        .text-gray-100 { color: #F7FAFC; } /* Light text */
-        .text-emerald-400 { color: #34D399; } /* Prominent headings */
-        .text-emerald-600 { color: #059669; } /* Button/active accents */
-        .bg-emerald-50 { background-color: #ECFDF5; color: #065F46; } /* Light emerald for recommendations */
-        .border-emerald-200 { border-color: #A7F3D0; } /* Light emerald border */
-        .border-gray-200 { border-color: #4A5568; } /* Darker gray borders */
-        .bg-gray-50 { background-color: #4A5568; } /* Lighter dark gray for specific cards */
-        .text-gray-700 { color: #CBD5E0; } /* Lighter gray for general text */
-        .text-gray-600 { color: #A0AEC0; } /* Lighter gray for descriptions */
-        .text-gray-500 { color: #718096; } /* Even lighter gray for info */
-        .border-gray-300 { border-color: #718096; } /* Checkbox borders */
-        .border-gray-600 { border-color: #4A5568; } /* Input borders */
-        input:focus { border-color: #34D399; ring-color: #34D399; }
+
+        /* Monochromatic Dark Palette */
+        .bg-main-bg { background-color: #1A1A1A; } /* Body background */
+        .bg-header-bg { background-color: #262626; } /* Header background */
+        .bg-card-bg { background-color: #2D2D2D; } /* Main card background */
+        .bg-sub-card-bg { background-color: #383838; } /* Nested/completed card background */
+
+        .text-main-text { color: #E0E0E0; } /* Primary light text */
+        .text-secondary-text { color: #A3A3A3; } /* Secondary lighter gray text */
+        .text-accent { color: #60A5FA; } /* Accent blue for headings/active elements */
+        .text-accent-dark { color: #3B82F6; } /* Darker accent blue for checkboxes/hover */
+        .text-highlight { color: #FACC15; } /* Yellow for temperature highlight */
+
+        .border-subtle-border { border-color: #4D4D4D; } /* Subtle border for inputs/divs */
+
+        input:focus { border-color: #60A5FA; ring-color: #60A5FA; }
+
         .filter-btn {
-            background-color: #4A5568; /* Gray-600 */
-            color: #E2E8F0; /* Gray-200 */
+            background-color: #383838; /* Sub-card bg for inactive */
+            color: #E0E0E0; /* Main text color */
             border-radius: 9999px; /* Full rounded */
         }
-        .filter-btn.bg-emerald-600 {
-            background-color: #059669; /* Emerald-600 */
+        .filter-btn.bg-accent {
+            background-color: #60A5FA; /* Accent blue for active */
             color: white;
         }
         .filter-btn:hover {
-            background-color: #6366F1; /* Indigo-500 on hover */
+            background-color: #4D4D4D; /* Darker grey on hover for inactive */
         }
+        .filter-btn.bg-accent:hover {
+            background-color: #3B82F6; /* Darker blue on hover for active */
+        }
+
         .product-card {
-            background-color: #2D3748; /* Gray-800 */
-            color: #E2E8F0;
-            border-color: #4A5568;
+            background-color: #2D2D2D; /* Main card background */
+            color: #E0E0E0;
+            border-color: #4D4D4D; /* Subtle border */
         }
-        .product-card .font-semibold { color: #34D399; } /* Product names in accent */
-        .product-card .text-sm { color: #A0AEC0; }
+        .product-card .font-semibold { color: #60A5FA; } /* Product names in accent */
+        .product-card .text-sm { color: #A3A3A3; }
+
+        /* Phase Tabs - Equal Width & Responsive */
+        .phase-tab {
+            flex: 1;
+            text-align: left;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            white-space: normal;
+            border-radius: 0.5rem; /* Slightly rounded tabs */
+        }
+        @media (max-width: 767px) {
+            .phase-tab {
+                font-size: 0.75rem;
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+                margin-top: 0.25rem;
+                flex-basis: calc(33.33% - 0.5rem); /* Approximately 3 tabs per row */
+            }
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-main-bg">
 
-    <header class="shadow-sm sticky top-0 z-20">
+    <header class="shadow-sm sticky top-0 z-20 bg-header-bg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-emerald-400">Lawn Restoration Plan</h1>
-                    <p class="text-sm text-gray-500">Arlington Heights, IL</p>
+                    <h1 class="text-xl md:text-2xl font-bold text-accent">Lawn Restoration Plan</h1>
+                    <p class="text-sm text-secondary-text">Arlington Heights, IL</p>
                 </div>
                 <nav class="hidden md:flex space-x-6">
-                    <a href="#conditions" class="text-gray-400 hover:text-emerald-400 transition">Local Conditions</a>
-                    <a href="#today-focus" class="text-gray-400 hover:text-emerald-400 transition">Today's Focus</a>
-                    <a href="#weather-section" class="text-gray-400 hover:text-emerald-400 transition">Weather & Water</a>
-                    <a href="#plan" class="text-gray-400 hover:text-emerald-400 transition">The Plan</a>
-                    <a href="#past-tasks" class="text-gray-400 hover:text-emerald-400 transition">Past Tasks</a>
-                    <a href="#soil-test-input" class="text-gray-400 hover:text-emerald-400 transition">Soil Test</a>
-                    <a href="#tools" class="text-gray-400 hover:text-emerald-400 transition">Tools & Products</a>
+                    <a href="#conditions" class="text-secondary-text hover:text-accent transition">Local Conditions</a>
+                    <a href="#today-focus" class="text-secondary-text hover:text-accent transition">Today's Focus</a>
+                    <a href="#weather-section" class="text-secondary-text hover:text-accent transition">Weather & Water</a>
+                    <a href="#plan" class="text-secondary-text hover:text-accent transition">The Plan</a>
+                    <a href="#past-tasks" class="text-secondary-text hover:text-accent transition">Past Tasks</a>
+                    <a href="#soil-test-input" class="text-secondary-text hover:text-accent transition">Soil Test</a>
+                    <a href="#tools" class="text-secondary-text hover:text-accent transition">Tools & Products</a>
                 </nav>
             </div>
         </div>
@@ -319,62 +341,56 @@
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
-        <section id="intro" class="text-left mb-12 md:mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-emerald-400 mb-4">Your Path to a Robust Lawn</h2>
-            <p class="max-w-3xl text-gray-200">This interactive guide will help you reclaim your lawn in Arlington Heights. It's tailored to your local environment and will guide you through each step of the restoration process, from understanding your soil to finding the right tools.</p>
-            <p id="user-id-display" class="text-xs text-gray-500 mt-4"></p>
-        </section>
-
         <section id="today-focus" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Today's Focus</h3>
-            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-300 mb-6">Alright, lawn boss! Here are your missions for today. Check 'em off when you've conquered them. Your lawn isn't going to fabulous itself!</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">Today's Focus</h3>
+            <div class="bg-card-bg p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-secondary-text mb-6">Alright, lawn boss! Here are your missions for today. Check 'em off when you've conquered them. Your lawn isn't going to fabulous itself!</p>
                 <div id="today-tasks-list" class="space-y-4">
                 </div>
             </div>
         </section>
 
         <section id="weather-section" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Today's Weather & Watering Advice</h3>
-            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-300 mb-6">Let's check what Mother Nature has in store for your gorgeous greens! Your watering recommendations are based on this, so listen up. (Weather data is simulated for now.)</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">Today's Weather & Watering Advice</h3>
+            <div class="bg-card-bg p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-secondary-text mb-6">Let's check what Mother Nature has in store for your gorgeous greens! Your watering recommendations are based on this, so listen up. (Weather data is simulated for now.)</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div class="text-center p-4 border border-gray-600 rounded-xl bg-gray-700">
-                        <h4 class="font-semibold text-xl text-gray-100 mb-2">Current Conditions</h4>
-                        <p class="text-4xl font-bold text-orange-400" id="current-temp">--°F</p>
-                        <p class="text-lg text-gray-200" id="feels-like">Feels like --°F</p>
-                        <p class="text-md text-gray-300" id="weather-condition">--</p>
-                        <p class="text-sm text-gray-400" id="precip-chance">Precip. Chance: --%</p>
-                        <p class="text-sm text-gray-400" id="humidity">Humidity: --%</p>
+                    <div class="text-center p-4 border border-subtle-border rounded-xl bg-sub-card-bg">
+                        <h4 class="font-semibold text-xl text-main-text mb-2">Current Conditions</h4>
+                        <p class="text-4xl font-bold text-highlight" id="current-temp">--°F</p>
+                        <p class="text-lg text-main-text" id="feels-like">Feels like --°F</p>
+                        <p class="text-md text-secondary-text" id="weather-condition">--</p>
+                        <p class="text-sm text-secondary-text" id="precip-chance">Precip. Chance: --%</p>
+                        <p class="text-sm text-secondary-text" id="humidity">Humidity: --%</p>
                     </div>
-                    <div class="text-center p-4 border border-gray-600 rounded-xl bg-emerald-700">
-                        <h4 class="font-semibold text-xl text-gray-100 mb-2">Watering Recommendation</h4>
-                        <p id="watering-advice" class="text-lg text-emerald-100 leading-relaxed">Checking weather...</p>
-                        <p class="text-sm text-emerald-200 mt-2">Remember: Your silty soil holds water like a boss. Don't drown your lawn, okay?</p>
+                    <div class="text-center p-4 border border-subtle-border rounded-xl bg-sub-card-bg">
+                        <h4 class="font-semibold text-xl text-main-text mb-2">Watering Recommendation</h4>
+                        <p id="watering-advice" class="text-lg text-main-text leading-relaxed">Checking weather...</p>
+                        <p class="text-sm text-secondary-text mt-2">Remember: Your silty soil holds water like a boss. Don't drown your lawn, okay?</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="conditions" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Understanding Your Local Environment</h3>
-            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-300 mb-8">To truly master your lawn, you need to understand its battlefield: Arlington Heights' unique climate and soil. These insights are the secret sauce for a thriving lawn.</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">Understanding Your Local Environment</h3>
+            <div class="bg-card-bg p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-secondary-text mb-8">To truly master your lawn, you need to understand its battlefield: Arlington Heights' unique climate and soil. These insights are the secret sauce for a thriving lawn.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-600 bg-gray-700">
-                        <h4 class="font-semibold text-lg text-center mb-2 text-gray-100">Typical Soil Composition</h4>
+                    <div class="lg:col-span-1 p-4 rounded-xl border border-subtle-border bg-sub-card-bg">
+                        <h4 class="font-semibold text-lg text-center mb-2 text-main-text">Typical Soil Composition</h4>
                         <div class="chart-container">
                             <canvas id="soilCompositionChart"></canvas>
                         </div>
                     </div>
-                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-600 bg-gray-700">
-                        <h4 class="font-semibold text-lg text-center mb-2 text-gray-100">Average Monthly Temperatures (°F)</h4>
+                    <div class="lg:col-span-1 p-4 rounded-xl border border-subtle-border bg-sub-card-bg">
+                        <h4 class="font-semibold text-lg text-center mb-2 text-main-text">Average Monthly Temperatures (°F)</h4>
                          <div class="chart-container">
                             <canvas id="tempChart"></canvas>
                         </div>
                     </div>
-                    <div class="lg:col-span-1 p-4 rounded-xl border border-gray-600 bg-gray-700">
-                        <h4 class="font-semibold text-lg text-center mb-2 text-gray-100">Key Soil Nutrient Levels</h4>
+                    <div class="lg:col-span-1 p-4 rounded-xl border border-subtle-border bg-sub-card-bg">
+                        <h4 class="font-semibold text-lg text-center mb-2 text-main-text">Key Soil Nutrient Levels</h4>
                         <div class="chart-container">
                             <canvas id="nutrientChart"></canvas>
                         </div>
@@ -384,70 +400,70 @@
         </section>
 
         <section id="soil-test-input" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Enter Your Soil Test Results</h3>
-            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-                <p class="text-gray-300 mb-6">Got your lab results? Punch them in here for personalized, no-nonsense nutrient advice. Let's make that lawn pop!</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">Enter Your Soil Test Results</h3>
+            <div class="bg-card-bg p-6 md:p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+                <p class="text-secondary-text mb-6">Got your lab results? Punch them in here for personalized, no-nonsense nutrient advice. Let's make that lawn pop!</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div>
-                        <label for="ph-input" class="block text-sm font-medium text-gray-300">Soil pH</label>
-                        <input type="number" id="ph-input" step="0.1" min="4" max="9" value="7.2" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
+                        <label for="ph-input" class="block text-sm font-medium text-secondary-text">Soil pH</label>
+                        <input type="number" id="ph-input" step="0.1" min="4" max="9" value="7.2" class="mt-1 block w-full rounded-lg border-subtle-border bg-sub-card-bg text-main-text shadow-sm focus:border-accent focus:ring-accent sm:text-sm p-2">
                     </div>
                     <div>
-                        <label for="phosphorus-input" class="block text-sm font-medium text-gray-300">Phosphorus (ppm)</label>
-                        <input type="number" id="phosphorus-input" step="0.1" min="0" value="35.5" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
+                        <label for="phosphorus-input" class="block text-sm font-medium text-secondary-text">Phosphorus (ppm)</label>
+                        <input type="number" id="phosphorus-input" step="0.1" min="0" value="35.5" class="mt-1 block w-full rounded-lg border-subtle-border bg-sub-card-bg text-main-text shadow-sm focus:border-accent focus:ring-accent sm:text-sm p-2">
                     </div>
                     <div>
-                        <label for="potassium-input" class="block text-sm font-medium text-gray-300">Potassium (ppm)</label>
-                        <input type="number" id="potassium-input" step="0.1" min="0" value="215.5" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
+                        <label for="potassium-input" class="block text-sm font-medium text-secondary-text">Potassium (ppm)</label>
+                        <input type="number" id="potassium-input" step="0.1" min="0" value="215.5" class="mt-1 block w-full rounded-lg border-subtle-border bg-sub-card-bg text-main-text shadow-sm focus:border-accent focus:ring-accent sm:text-sm p-2">
                     </div>
                     <div>
-                        <label for="calcium-input" class="block text-sm font-medium text-gray-300">Calcium (ppm)</label>
-                        <input type="number" id="calcium-input" step="0.1" min="0" value="2894.0" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
+                        <label for="calcium-input" class="block text-sm font-medium text-secondary-text">Calcium (ppm)</label>
+                        <input type="number" id="calcium-input" step="0.1" min="0" value="2894.0" class="mt-1 block w-full rounded-lg border-subtle-border bg-sub-card-bg text-main-text shadow-sm focus:border-accent focus:ring-accent sm:text-sm p-2">
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="iron-input" class="block text-sm font-medium text-gray-300">Iron (ppm)</label>
-                        <input type="number" id="iron-input" step="0.1" min="0" value="150.5" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-gray-100 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm p-2">
+                        <label for="iron-input" class="block text-sm font-medium text-secondary-text">Iron (ppm)</label>
+                        <input type="number" id="iron-input" step="0.1" min="0" value="150.5" class="mt-1 block w-full rounded-lg border-subtle-border bg-sub-card-bg text-main-text shadow-sm focus:border-accent focus:ring-accent sm:text-sm p-2">
                     </div>
                 </div>
-                <button id="get-soil-recommendations-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg font-semibold transition">Get Recommendations</button>
-                <div id="soil-recommendations-output" class="mt-6 p-4 bg-emerald-900 border border-emerald-700 rounded-lg text-emerald-100 hidden">
+                <button id="get-soil-recommendations-btn" class="w-full bg-accent hover:bg-accent-dark text-white py-2 px-4 rounded-lg font-semibold transition">Get Recommendations</button>
+                <div id="soil-recommendations-output" class="mt-6 p-4 bg-sub-card-bg border border-accent rounded-lg text-main-text hidden">
                 </div>
             </div>
         </section>
 
         <section id="plan" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">The Restoration Plan: A Seasonal Timeline</h3>
-            <div class="w-full max-w-4xl mx-auto bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
-                <div class="border-b border-gray-600 mb-6">
-                    <nav class="-mb-px flex flex-wrap justify-center gap-x-4 md:space-x-8" aria-label="Tabs">
-                        <button id="tab-phase1" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm md:text-base">Phase 1: Prep (Late July - Early Aug)</button>
-                        <button id="tab-phase2" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm md:text-base">Phase 2: Restore (Mid-Aug - Sept)</button>
-                        <button id="tab-phase3" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm md:text-base">Phase 3: Maintain (Ongoing)</button>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">The Restoration Plan: A Seasonal Timeline</h3>
+            <div class="w-full max-w-4xl mx-auto bg-card-bg p-6 md:p-8 rounded-xl shadow-lg">
+                <div class="border-b border-subtle-border mb-6">
+                    <nav class="-mb-px flex flex-wrap justify-center gap-x-1 md:space-x-4" aria-label="Tabs">
+                        <button id="tab-phase1" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-xs md:text-base">Phase 1: Prep (Late July - Early Aug)</button>
+                        <button id="tab-phase2" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-xs md:text-base">Phase 2: Restore (Mid-Aug - Sept)</button>
+                        <button id="tab-phase3" class="phase-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-xs md:text-base">Phase 3: Maintain (Ongoing)</button>
                     </nav>
                 </div>
 
                 <div id="content-phase1" class="phase-content mt-8">
                     <div class="space-y-6">
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-1">
-                                <span class="text-lg font-semibold text-emerald-400">1. Comprehensive Soil Testing</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">1. Comprehensive Soil Testing</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-1" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-4">The cornerstone of this plan. A lab test reveals precise pH and nutrient levels, eliminating guesswork. Collect 10-15 random 3-6" samples, mix, dry, and send to a lab. Tailored treatments require accurate data.</p>
-                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                <p class="text-secondary-text mb-4">The cornerstone of this plan. A lab test reveals precise pH and nutrient levels, eliminating guesswork. Collect 10-15 random 3-6" samples, mix, dry, and send to a lab. Tailored treatments require accurate data.</p>
+                                <div class="bg-sub-card-bg border border-accent p-3 rounded-lg text-sm text-main-text">
                                     <strong class="font-semibold">Why it's critical:</strong> Soil pH directly impacts nutrient absorption. Guessing means wasted time, money, and potentially harming your lawn.
                                 </div>
                             </div>
                         </div>
-                         <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                         <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-2">
-                                <span class="text-lg font-semibold text-emerald-400">2. Weed & Pest Identification</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">2. Weed & Pest Identification</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-2" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-4">Identify those invaders (dandelion, clover, crabgrass?!) and any creepy crawlies (grubs?). Hand-pull any small-time offenders. Too hot for chemicals, so keep it chill.</p>
-                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                <p class="text-secondary-text mb-4">Identify those invaders (dandelion, clover, crabgrass?!) and any creepy crawlies (grubs?). Hand-pull any small-time offenders. Too hot for chemicals, so keep it chill.</p>
+                                <div class="bg-sub-card-bg border border-accent p-3 rounded-lg text-sm text-main-text">
                                     <strong class="font-semibold">Key Strategy:</strong> Right now, it's about containment. Over-aggressive chemical use in summer just stresses your grass more. Patience, grasshopper.
                                 </div>
                             </div>
@@ -457,41 +473,41 @@
 
                 <div id="content-phase2" class="phase-content mt-8 hidden">
                     <div class="space-y-6">
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-3">
-                                <span class="text-lg font-semibold text-emerald-400">1. Aeration & Dethatching</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">1. Aeration & Dethatching</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-3" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-4">This is the restoration hot zone! In late August/September, rent a core aerator to de-compact your soil. This lets your lawn breathe and soak up water/nutrients. If thatch (that dead grass layer) is over 0.5 inches, dethatch. Do it when the soil is nicely moist – your lawn will thank you.</p>
-                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                <p class="text-secondary-text mb-4">This is the restoration hot zone! In late August/September, rent a core aerator to de-compact your soil. This lets your lawn breathe and soak up water/nutrients. If thatch is over 0.5 inches, dethatch. Do it when the soil is nicely moist – your lawn will thank you.</p>
+                                <div class="bg-sub-card-bg border border-accent p-3 rounded-lg text-sm text-main-text">
                                     <strong class="font-semibold">Pro Tip:</strong> Aerating before overseeding creates perfect little pockets for new seeds. It's like VIP seating for your baby grass!
                                 </div>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-4">
-                                <span class="text-lg font-semibold text-emerald-400">2. Overseeding with a Quality Blend</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">2. Overseeding with a Quality Blend</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-4" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-4">Right after aeration, spread that premium cool-season grass blend. A mix of Kentucky Bluegrass, Perennial Ryegrass, and Fescue is your Northern Illinois dream team! Lightly cover with peat moss or straw, then water daily until sprouts appear (10-14 days).</p>
-                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                <p class="text-secondary-text mb-4">Right after aeration, spread that premium cool-season grass blend. A mix of Kentucky Bluegrass, Perennial Ryegrass, and Fescue is your Northern Illinois dream team! Lightly cover with peat moss or straw, then water daily until sprouts appear (10-14 days).</p>
+                                <div class="bg-sub-card-bg border border-accent p-3 rounded-lg text-sm text-main-text">
                                     <strong class="font-semibold">The Ideal Blend:</strong> <br>
-                                    - <strong class="text-emerald-200">Kentucky Bluegrass:</strong> For luscious density & self-healing. <br>
-                                    - <strong class="text-emerald-200">Perennial Ryegrass:</strong> For quick, show-off germination. <br>
-                                    - <strong class="text-emerald-200">Fescue (Tall/Fine):</strong> For drought and shade superpowers.
+                                    - <strong class="text-secondary-text">Kentucky Bluegrass:</strong> For luscious density & self-healing. <br>
+                                    - <strong class="text-secondary-text">Perennial Ryegrass:</strong> For quick, show-off germination. <br>
+                                    - <strong class="text-secondary-text">Fescue (Tall/Fine):</strong> For drought and shade superpowers.
                                 </div>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-5">
-                                <span class="text-lg font-semibold text-emerald-400">3. Apply Starter Fertilizer</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">3. Apply Starter Fertilizer</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-5" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-4">Fertilize with a starter formula while seeding. These have extra phosphorus – the secret ingredient for monster root growth. Give those baby roots the best head start before winter arrives!</p>
-                                <div class="bg-emerald-900 border border-emerald-700 p-3 rounded-lg text-sm text-emerald-100">
+                                <p class="text-secondary-text mb-4">Fertilize with a starter formula while seeding. These have extra phosphorus – the secret ingredient for monster root growth. Give those baby roots the best head start before winter arrives!</p>
+                                <div class="bg-sub-card-bg border border-accent p-3 rounded-lg text-sm text-main-text">
                                     <strong class="font-semibold">NPK Magic:</strong> Look for ratios like 10-18-10 or 18-24-12. That middle number (Phosphorus) is your roots' best friend.
                                 </div>
                             </div>
@@ -501,38 +517,38 @@
 
                 <div id="content-phase3" class="phase-content mt-8 hidden">
                     <div class="space-y-6">
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-6">
-                                <span class="text-lg font-semibold text-emerald-400">Mowing & Watering Strategy</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">Mowing & Watering Strategy</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-6" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-2"><strong class="font-semibold">Mowing:</strong> Keep it tall, 3-3.5 inches. Only ever cut a third of the blade – no extreme makeovers! Sharp blades = happy grass.</p>
-                                <p class="text-gray-300"><strong class="font-semibold">Watering:</strong> Go deep, go infrequent (1-1.5 inches/week). Morning is best. Your silty soil likes to hold water, so check before you soak.</p>
+                                <p class="text-secondary-text mb-2"><strong class="font-semibold">Mowing:</strong> Keep it tall, 3-3.5 inches. Only ever cut a third of the blade – no extreme makeovers! Sharp blades = happy grass.</p>
+                                <p class="text-secondary-text"><strong class="font-semibold">Watering:</strong> Go deep, go infrequent (1-1.5 inches/week). Morning is best. Your silty soil likes to hold water, so check before you soak.</p>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-7">
-                                <span class="text-lg font-semibold text-emerald-400">Annual Fertilization Schedule</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">Annual Fertilization Schedule</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-7" class="details-panel px-5 pb-5">
-                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <ul class="list-disc list-inside text-secondary-text space-y-2">
                                     <li><strong class="font-semibold">Early Spring (Feb-Apr):</strong> First feeding. Gentle wake-up call for your grass.</li>
                                     <li><strong class="font-semibold">Late Spring (Apr-Jun):</strong> Second feeding, 6-8 weeks later. Keep the good times rolling!</li>
                                     <li><strong class="font-semibold">Summer (Jun-Jul):</strong> Optional. Only if needed and if you can provide enough water – don't dry-fry your lawn!</li>
-                                    <li><strong class="font-semibold text-emerald-400">Fall (Sept & Nov):</strong> The Big Ones! "Winterizer" for superhero roots and next spring's award-winning green.</li>
+                                    <li><strong class="font-semibold text-accent">Fall (Sept & Nov):</strong> The Big Ones! "Winterizer" for superhero roots and next spring's award-winning green.</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="task-card bg-gray-700 rounded-xl shadow-sm overflow-hidden">
+                        <div class="task-card bg-sub-card-bg rounded-xl shadow-sm overflow-hidden">
                             <button class="w-full text-left p-5 flex justify-between items-center focus:outline-none" data-target="details-8">
-                                <span class="text-lg font-semibold text-emerald-400">Integrated Pest & Weed Management</span>
-                                <span class="text-2xl text-emerald-600 transition-transform duration-300">&#9662;</span>
+                                <span class="text-lg font-semibold text-accent">Integrated Pest & Weed Management</span>
+                                <span class="text-2xl text-accent-dark transition-transform duration-300">&#9662;</span>
                             </button>
                             <div id="details-8" class="details-panel px-5 pb-5">
-                                <p class="text-gray-300 mb-2"><strong class="font-semibold">Proactive (Pre-emergent):</strong> Spring (late Apr/early May) for crabgrass. Stops 'em before they start. (Don't apply if you're seeding, duh.)</p>
-                                <p class="text-gray-300"><strong class="font-semibold">Reactive (Post-emergent):</strong> Fall is prime time for existing broadleaf weeds. They're vulnerable then. Check for grubs in late summer and give 'em what for!</p>
+                                <p class="text-secondary-text mb-2"><strong class="font-semibold">Proactive (Pre-emergent):</strong> Spring (late Apr/early May) for crabgrass. Stops 'em before they start. (Don't apply if you're seeding, duh.)</p>
+                                <p class="text-secondary-text"><strong class="font-semibold">Reactive (Post-emergent):</strong> Fall is prime time for existing broadleaf weeds. They're vulnerable then. Check for grubs in late summer and give 'em what for!</p>
                             </div>
                         </div>
                     </div>
@@ -541,23 +557,23 @@
         </section>
 
         <section id="past-tasks" class="mb-12 md:mb-16 scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Past Tasks Completed</h3>
-            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
-                <p class="text-gray-300 mb-6">Look at you, getting things done! Here's a glorious record of your lawn-conquering achievements. Pat yourself on the back, you earned it!</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">Past Tasks Completed</h3>
+            <div class="bg-card-bg p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-secondary-text mb-6">Look at you, getting things done! Here's a glorious record of your lawn-conquering achievements. Pat yourself on the back, you earned it!</p>
                 <div id="completed-tasks-list" class="space-y-4">
                 </div>
             </div>
         </section>
 
         <section id="tools" class="scroll-mt-20">
-            <h3 class="text-2xl md:text-3xl font-bold text-left text-emerald-400 mb-8">Tools & Products Checklist</h3>
-            <div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl md:text-3xl font-bold text-left text-accent mb-8">Tools & Products Checklist</h3>
+            <div class="bg-card-bg p-6 md:p-8 rounded-xl shadow-lg">
                 <div class="flex flex-wrap justify-start gap-2 mb-8">
-                    <button class="filter-btn bg-emerald-600 text-white py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-emerald-700">All</button>
-                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="tool">Tools</button>
-                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="seed">Seed</button>
-                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="fertilizer">Fertilizers</button>
-                    <button class="filter-btn bg-gray-700 text-gray-200 py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-gray-600" data-filter="control">Weed/Pest Control</button>
+                    <button class="filter-btn bg-accent text-white py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-accent-dark">All</button>
+                    <button class="filter-btn bg-sub-card-bg text-main-text py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-sub-card-bg" data-filter="tool">Tools</button>
+                    <button class="filter-btn bg-sub-card-bg text-main-text py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-sub-card-bg" data-filter="seed">Seed</button>
+                    <button class="filter-btn bg-sub-card-bg text-main-text py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-sub-card-bg" data-filter="fertilizer">Fertilizers</button>
+                    <button class="filter-btn bg-sub-card-bg text-main-text py-2 px-4 rounded-full text-sm font-semibold transition hover:bg-sub-card-bg" data-filter="control">Weed/Pest Control</button>
                 </div>
                 <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     </div>
@@ -566,8 +582,8 @@
 
     </main>
 
-    <footer class="bg-gray-800 mt-16">
-        <div class="container mx-auto px-8 py-6 text-center text-gray-400">
+    <footer class="bg-header-bg mt-16">
+        <div class="container mx-auto px-8 py-6 text-center text-secondary-text">
             <p>&copy; 2024 Interactive Lawn Plan. Information sourced from the Comprehensive Lawn Restoration Report.</p>
         </div>
     </footer>
@@ -575,14 +591,14 @@
     <script>
         function getCategoryColor(category) {
             switch (category) {
-                case 'tool': return 'bg-blue-800 text-blue-100'; /* Darker blue for tools */
-                case 'seed': return 'bg-yellow-800 text-yellow-100'; /* Darker yellow for seed */
-                case 'fertilizer': return 'bg-green-800 text-green-100'; /* Darker green for fertilizer */
-                case 'control': return 'bg-red-800 text-red-100'; /* Darker red for control */
-                case 'Prep': return 'bg-purple-800 text-purple-100';
-                case 'Restore': return 'bg-orange-800 text-orange-100';
-                case 'Maintain': return 'bg-teal-800 text-teal-100';
-                default: return 'bg-gray-800 text-gray-100';
+                case 'tool': return 'bg-gray-700 text-gray-200';
+                case 'seed': return 'bg-blue-700 text-blue-100';
+                case 'fertilizer': return 'bg-green-700 text-green-100';
+                case 'control': return 'bg-red-700 text-red-100';
+                case 'Prep': return 'bg-purple-700 text-purple-100';
+                case 'Restore': return 'bg-orange-700 text-orange-100';
+                case 'Maintain': return 'bg-teal-700 text-teal-100';
+                default: return 'bg-gray-600 text-gray-200';
             }
         }
 
@@ -599,7 +615,7 @@
                 { name: 'Fall or Winterizer Fertilizer', category: 'fertilizer', desc: 'High-potassium goodness for winter survival and a spring explosion.' },
                 { name: 'Spring or Summer Fertilizer', category: 'fertilizer', desc: 'Seasonal boosts for when your lawn needs an extra kick.' },
                 { name: 'Post-Emergent Broadleaf Herbicide', category: 'control', desc: 'Targets existing broadleaf invaders. Apply with precision, then watch \'em wilt.' },
-                { name: 'Pre-Emergent Herbicide', category: 'control', desc: 'Your secret weapon against crabgrass. Stops it before it even sprouts!' },
+                { name: 'Pre-Emergent Herbicide', category: 'control', desc: 'Your secret weapon against crabgrass. Stops it before it even thinks about sprouting. (Just don\'t apply if you\'re seeding!)' },
                 { name: 'Grub Control Product', category: 'control', desc: 'For when tiny monsters attack. Immediate (Dylox) or long-term (Nematodes) solutions.' },
                 { name: 'Peat Moss or Straw', category: 'seed', desc: 'A cozy blanket for your new seeds, keeping them moist and safe.' },
             ];
@@ -613,11 +629,11 @@
                 
                 filteredProducts.forEach(product => {
                     const card = document.createElement('div');
-                    card.className = 'product-card border rounded-xl p-4 flex flex-col justify-between bg-gray-700'; /* Darker card background */
+                    card.className = 'product-card border rounded-xl p-4 flex flex-col justify-between bg-card-bg';
                     card.innerHTML = `
                         <div>
-                            <p class="font-semibold text-emerald-300">${product.name}</p>
-                            <p class="text-sm text-gray-300">${product.desc}</p>
+                            <p class="font-semibold text-accent">${product.name}</p>
+                            <p class="text-sm text-secondary-text">${product.desc}</p>
                         </div>
                         <span class="text-xs font-medium uppercase mt-3 px-2 py-1 rounded-full self-start ${getCategoryColor(product.category)}">${product.category}</span>
                     `;
@@ -628,11 +644,11 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => {
-                        b.classList.remove('bg-emerald-600', 'text-white');
-                        b.classList.add('bg-gray-700', 'text-gray-200'); /* Adjusted inactive button colors */
+                        b.classList.remove('bg-accent', 'text-white');
+                        b.classList.add('bg-sub-card-bg', 'text-main-text');
                     });
-                    btn.classList.add('bg-emerald-600', 'text-white');
-                    btn.classList.remove('bg-gray-700', 'text-gray-200');
+                    btn.classList.add('bg-accent', 'text-white');
+                    btn.classList.remove('bg-sub-card-bg', 'text-main-text');
                     renderProducts(btn.dataset.filter);
                 });
             });
@@ -708,8 +724,8 @@
                     datasets: [{
                         label: 'Soil Composition',
                         data: [63, 23, 14],
-                        backgroundColor: ['#6F6259', '#4A423B', '#9B8D80'], /* Darker earthy tones */
-                        borderColor: '#1A202C', /* Match body background */
+                        backgroundColor: ['#60A5FA', '#3B82F6', '#60A5FA'], /* Accent blue shades for soil */
+                        borderColor: '#1A1A1A', /* Match body background */
                         borderWidth: 4
                     }]
                 },
@@ -717,7 +733,7 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { labels: { color: '#E2E8F0' }, position: 'bottom' }, /* Light legend text */
+                        legend: { labels: { color: '#A3A3A3' }, position: 'bottom' }, /* Secondary text legend */
                         tooltip: { callbacks: { label: (context) => `${context.label}: ${context.raw}%` } }
                     }
                 }
@@ -731,15 +747,15 @@
                     datasets: [{
                         label: 'Avg High Temp',
                         data: [74, 81, 84, 82, 75, 63],
-                        borderColor: '#FB923C', /* Orange-400 */
-                        backgroundColor: 'rgba(251, 146, 60, 0.1)',
+                        borderColor: '#60A5FA', /* Accent Blue for high temp */
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
                         fill: true,
                         tension: 0.4
                     }, {
                         label: 'Avg Low Temp',
                         data: [52, 61, 65, 63, 55, 44],
-                        borderColor: '#60A5FA', /* Blue-400 */
-                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                        borderColor: '#A3A3A3', /* Secondary text color for low temp */
+                        backgroundColor: 'rgba(163, 163, 163, 0.1)',
                         fill: true,
                         tension: 0.4
                     }]
@@ -747,10 +763,10 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { labels: { color: '#E2E8F0' }, position: 'bottom' } }, /* Light legend text */
+                    plugins: { legend: { labels: { color: '#A3A3A3' }, position: 'bottom' } }, /* Secondary text legend */
                     scales: {
-                        x: { ticks: { color: '#A0AEC0' }, grid: { color: '#4A5568' } }, /* Darker grid lines */
-                        y: { ticks: { color: '#A0AEC0', callback: (value) => `${value}°F` }, grid: { color: '#4A5568' } } /* Darker grid lines */
+                        x: { ticks: { color: '#A3A3A3' }, grid: { color: '#4D4D4D' } }, /* Secondary ticks, subtle border grid */
+                        y: { ticks: { color: '#A3A3A3', callback: (value) => `${value}°F` }, grid: { color: '#4D4D4D' } } /* Secondary ticks, subtle border grid */
                     }
                 }
             });
@@ -763,7 +779,7 @@
                     datasets: [{
                         label: 'Nutrient Level (ppm)',
                         data: [35.5, 215.5, 2894.0, 150.5],
-                        backgroundColor: ['#10B981', '#34D399', '#6EE7B7', '#A7F3D0'], /* Lighter emerald shades for visibility on dark */
+                        backgroundColor: ['#60A5FA', '#3B82F6', '#60A5FA', '#3B82F6'], /* Accent blue shades for nutrients */
                     }]
                 },
                 options: {
@@ -773,18 +789,18 @@
                     plugins: { legend: { display: false } },
                     scales: {
                         x: {
-                            ticks: { color: '#A0AEC0',
+                            ticks: { color: '#A3A3A3',
                                 callback: function(value, index, values) {
                                     if (value === 10 || value === 100 || value === 1000 || value === 3000) {
                                         return value.toString();
                                     }
                                 }
                             },
-                            grid: { color: '#4A5568' } /* Darker grid lines */
+                            grid: { color: '#4D4D4D' } /* Subtle border grid */
                         },
                         y: {
-                            ticks: { color: '#A0AEC0' }, /* Light text for labels */
-                            grid: { color: '#4A5568' } /* Darker grid lines */
+                            ticks: { color: '#A3A3A3' }, /* Secondary ticks */
+                            grid: { color: '#4D4D4D' } /* Subtle border grid */
                         }
                     }
                 }
